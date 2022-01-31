@@ -30,9 +30,8 @@ public class SettingsActivity extends Activity implements AdapterView.OnItemSele
     }
 
     private void CreateSpinners() {
-        //Log.i("durationarray", TimeSettings.timeWorkDurationArray.toString());
-        CustomAdapter workAdapter = new CustomAdapter(this, android.R.layout.simple_spinner_item, TimeSettings.timeWorkDurationArray);
-        CustomAdapter breakAdapter = new CustomAdapter(this, android.R.layout.simple_spinner_item, TimeSettings.timeBreakDurationArray);
+        CustomAdapter workAdapter = new CustomAdapter(this, android.R.layout.simple_spinner_item, getDurations("work"));
+        CustomAdapter breakAdapter = new CustomAdapter(this, android.R.layout.simple_spinner_item, getDurations("break"));
 
         workAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         breakAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -48,7 +47,29 @@ public class SettingsActivity extends Activity implements AdapterView.OnItemSele
         workSpn.setOnItemSelectedListener(this);
         breakSpn.setOnItemSelectedListener(this);
     }
+    private String[] getDurations(String durationID) {
+        String[] durationsDefault = null;
+        String[] durationsExtented = null;
+        int minuteDefault = 0;
+        if (durationID.equals("work")) {
+            durationsDefault =getResources().getStringArray(R.array.timerWorkDurationArray);
+            durationsExtented = new String[durationsDefault.length + 1];
+            minuteDefault = TimeSettings.minuteWorkDefault;
+        }
+        else if (durationID.equals("break")) {
+            durationsDefault = getResources().getStringArray(R.array.timerBreakDurationArray);
+            durationsExtented = new String[durationsDefault.length + 1];
+            minuteDefault = TimeSettings.minuteBreakDefault;
+        }
+        for (int i = 1; i < durationsExtented.length; i++) {
+            if (String.valueOf(minuteDefault).equals(durationsDefault[i-1].split(" ")[0])) {
+                durationsExtented[0] = durationsDefault[i-1];
+            }
 
+            durationsExtented[i] = durationsDefault[i - 1];
+        }
+        return durationsExtented;
+    }
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
          String input = parent.getSelectedItem().toString();

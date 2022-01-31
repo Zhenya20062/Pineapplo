@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Work duration"
+            android:text="@string/settingsWorkDuration"
             android:textAlignment="center"
             android:textSize="20sp" />
 
@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Break duration"
+            android:text="@string/settingsBreakDuration"
             android:textAlignment="center"
             android:textSize="20sp" />
         <Spinner

@@ -9,10 +9,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.euzhene.pineapplo.TimeSettings;
+
 
 public class CustomAdapter extends ArrayAdapter<String> {
 
-    private int hideItemPosition;
+    private int hideItemPosition = 50;
     public CustomAdapter(@NonNull Context context, int resource, @NonNull String[] objects) {
         super(context, resource, objects);
     }
@@ -23,7 +25,7 @@ public class CustomAdapter extends ArrayAdapter<String> {
 
     @Override
     public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View v = null;
+        View v;
         if (position == hideItemPosition) {
             TextView tv = new TextView(getContext());
             tv.setHeight(0);

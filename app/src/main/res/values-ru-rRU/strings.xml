@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pineapplo Таймер</string>
+    <string name="colon">:</string>
+    <string name="minuteWorkDefault" >25</string>
+    <string name="secondWorkDefault">00</string>
+    <string name="minuteBreakDefault">3</string>
+    <string name="secondBreakDefault">30</string>
+    <string name="settingsWorkDuration">Продолжительность томата</string>
+    <string name="settingsBreakDuration">Перерыв</string>
+
+    <string-array name="timerWorkDurationArray" >
+        <item >1 минута</item>
+        <item >5 минут</item>
+        <item >10 минут</item>
+        <item >25 минут</item>
+        <item >45 минут</item>
+        <item >60 минут</item>
+    </string-array>
+    <string-array name="timerBreakDurationArray" >
+        <item >3 минуты</item>
+        <item >4 минуты</item>
+        <item >5 минут</item>
+        <item >7 минут</item>
+        <item >10 минут</item>
+        <item >15 минут</item>
+    </string-array>
+</resources>
