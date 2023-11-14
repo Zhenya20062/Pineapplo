@@ -62,17 +62,21 @@ public class MyService extends Service {
         long totalTime = SystemClock.elapsedRealtime() + MainActivity.timerViewModel.GetTotalTimeInMillis();
         //long totalTime = System.currentTimeMillis() + MainActivity.timerViewModel.GetTotalTimeInMillis();
         AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setExactAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP, totalTime, getBroadcastPendingIntent());
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            if (alarmManager.canScheduleExactAlarms())
+            alarmManager.setExactAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP, totalTime, getBroadcastPendingIntent());
+        }
         //alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, totalTime, getBroadcastPendingIntent());
     }
     private PendingIntent getBroadcastPendingIntent() {
         Intent broadcastIntent = new Intent(getApplicationContext(), MyWakefulReceiver.class);
-        return PendingIntent.getBroadcast(getApplicationContext(), 0, broadcastIntent, 0);
+        return PendingIntent.getBroadcast(getApplicationContext(), 0, broadcastIntent, PendingIntent.FLAG_IMMUTABLE);
     }
     private PendingIntent getNotificationPendingIntent() {
         Intent notificationIntent = new Intent(this, MainActivity.class);
         //notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        return PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent, 0);
+        return PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE);
     }
 
     @Nullable
