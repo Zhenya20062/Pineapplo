@@ -4,47 +4,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
-    >
+    android:background="@drawable/bg">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintWidth_percent="0.6">
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/ll_work_duration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/settingsWorkDuration"
-            android:textAlignment="center"
-            android:textSize="20sp" />
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/ll_break_duration"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settingsWorkDuration"
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
-        <Spinner
-            android:id="@+id/workDurationSpinner"
+            <Spinner
+                android:id="@+id/workDurationSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_spinner"
+                android:dropDownWidth="wrap_content"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_break_duration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="160dp"
-            android:background="@drawable/bg_spinner"
-            android:dropDownWidth="wrap_content"
-            android:spinnerMode="dropdown" />
-        <TextView
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/ll_work_music"
+            app:layout_constraintTop_toBottomOf="@id/ll_work_duration">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settingsBreakDuration"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/breakDurationSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_spinner"
+                android:dropDownWidth="wrap_content"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_work_music"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/settingsBreakDuration"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-        <Spinner
-            android:id="@+id/breakDurationSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="250dp"
-            android:background="@drawable/bg_spinner"
-            android:dropDownWidth="wrap_content"
-            android:spinnerMode="dropdown" />
-    </LinearLayout>
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_break_duration">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settingsWorkMusic"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_upload_music"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/bg_spinner"
+                android:text="@string/upload"
+                android:textColor="@color/black" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/progress_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:indicatorSize="70dp"
+                app:trackThickness="5dp" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

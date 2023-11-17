@@ -2,6 +2,7 @@ package com.euzhene.pineapplo.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +18,7 @@ import com.euzhene.pineapplo.viewmodels.TimerViewModel;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
     private Intent intent;
     public static TimerViewModel timerViewModel;
 
@@ -31,9 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(view);
 
         TimeSettings.setSharedPreferences(getSharedPreferences("MyPrefs", Context.MODE_PRIVATE));
-
-        timerViewModel = new TimerViewModel();
-
+        timerViewModel = new ViewModelProvider(this,new TimerViewModel.TimerViewModelFactory(getApplication())).get(TimerViewModel.class);
         intent = new Intent(this, MyService.class);
 
         setButtonListeners();

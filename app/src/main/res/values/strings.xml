@@ -1,12 +1,15 @@
 <resources>
     <string name="app_name">Pineapplo Timer</string>
-    <string name="colon">:</string>
-    <string name="minuteWorkDefault" >25</string>
-    <string name="secondWorkDefault">00</string>
-    <string name="minuteBreakDefault">3</string>
-    <string name="secondBreakDefault">30</string>
+    <string name="colon" translatable="false">:</string>
+    <string name="minuteWorkDefault" translatable="false">25</string>
+    <string name="secondWorkDefault" translatable="false">00</string>
+    <string name="minuteBreakDefault" translatable="false">3</string>
+    <string name="secondBreakDefault" translatable="false">30</string>
     <string name="settingsWorkDuration">Work duration</string>
     <string name="settingsBreakDuration">Break duration</string>
+    <string name="settingsWorkMusic">Work music</string>
+    <string name="upload">Upload</string>
+    <string name="unknown_error">Unknown error</string>
 
     <string-array name="timerWorkDurationArray" >
         <item >1 minutes</item>

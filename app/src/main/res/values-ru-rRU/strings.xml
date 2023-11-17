@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Pineapplo Таймер</string>
-    <string name="colon">:</string>
-    <string name="minuteWorkDefault" >25</string>
-    <string name="secondWorkDefault">00</string>
-    <string name="minuteBreakDefault">3</string>
-    <string name="secondBreakDefault">30</string>
     <string name="settingsWorkDuration">Продолжительность томата</string>
     <string name="settingsBreakDuration">Перерыв</string>
 
@@ -25,4 +20,7 @@
         <item >10 минут</item>
         <item >15 минут</item>
     </string-array>
+    <string name="settingsWorkMusic">Музыка во время томата</string>
+    <string name="upload">Загрузить</string>
+    <string name="unknown_error">Неизвестная ошибка</string>
 </resources>
